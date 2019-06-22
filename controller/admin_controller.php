@@ -126,7 +126,7 @@ class admin_controller implements admin_interface
 			$filter_by .= ' AND u.username_clean ' . $this->db->sql_like_expression(utf8_clean_string(substr($fc, 0, 1)) . $this->db->get_any_char());
 		}
 
-	   	$sql = $this->db->sql_build_query('SELECT', array(
+		$sql = $this->db->sql_build_query('SELECT', array(
 			'SELECT'	=> 'u.user_id, u.username, u.username_clean, u.user_colour, z.*',
 			'FROM'		=> array(
 				USERS_TABLE	=> 'u',
@@ -159,7 +159,7 @@ class admin_controller implements admin_interface
 					'FOE'		=> ($rowdata['foe'] == 0) ? '' : get_username_string('full', $row['user_id'], $row['username'], 'CC3300'),
 					'FRIEND'	=> ($rowdata['friend'] == 0) ? '' : get_username_string('full', $row['user_id'], $row['username'], '006600'),
 					'USERNAME'	=> get_username_string('full', $rowdata['user_id'], $rowdata['username'], $rowdata['user_colour']),
-		   		));
+				));
 			}
 			$this->db->sql_freeresult($result);
 		}
