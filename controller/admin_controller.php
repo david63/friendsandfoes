@@ -151,7 +151,7 @@ class admin_controller implements admin_interface
 			{
 				$sql = 'SELECT user_id, username
 					FROM ' . USERS_TABLE . '
-					WHERE user_id = ' . $rowdata['zebra_id'];
+					WHERE user_id = ' . (int) $rowdata['zebra_id'];
 
 				$result = $this->db->sql_query($sql);
 				$row	= $this->db->sql_fetchrow($result);
