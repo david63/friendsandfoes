@@ -79,7 +79,7 @@ class functions
 			$stable = 'unstable';
 		}
 
-		// Can we access the version srver?
+		// Can we access the version server?
 		if (@fopen($port . $this->get_meta('host') . $this->get_meta('directory') . '/' . $this->get_meta('filename'), 'r'))
 		{
 			try

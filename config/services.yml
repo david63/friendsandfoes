@@ -15,3 +15,6 @@ services:
         class: david63\friendsandfoes\core\functions
         arguments:
             - '@ext.manager'
+
+    _defaults:
+        public: true

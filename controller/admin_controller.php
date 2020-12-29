@@ -86,8 +86,7 @@ class admin_controller implements admin_interface
 	public function display_output()
 	{
 		// Add the language files
-		$this->language->add_lang('acp_friendsandfoes', $this->functions->get_ext_namespace());
-		$this->language->add_lang('acp_common', $this->functions->get_ext_namespace());
+		$this->language->add_lang(array('acp_friendsandfoes', 'acp_common'), $this->functions->get_ext_namespace());
 
 		// Start initial var setup
 		$action			= $this->request->variable('action', '');
@@ -166,7 +165,7 @@ class admin_controller implements admin_interface
 		}
 
 		$sort_by_text	= array('u' => $this->language->lang('SORT_USERNAME'), 'f' => $this->language->lang('SORT_FRIEND'), 'o' => $this->language->lang('SORT_FOE'));
-		$limit_days	= array();
+		$limit_days	= [];
 		$s_sort_key	= $s_limit_days = $s_sort_dir = $u_sort_param = '';
 
 		gen_sort_selects($limit_days, $sort_by_text, $sort_days, $sort_key, $sd, $s_limit_days, $s_sort_key, $s_sort_dir, $u_sort_param);
@@ -212,7 +211,7 @@ class admin_controller implements admin_interface
 		$start = $this->pagination->validate_start($start, $this->config['topics_per_page'], $user_count);
 		$this->pagination->generate_template_pagination($action . "&ampfc=$fc", 'pagination', 'start', $user_count, $this->config['topics_per_page'], $start);
 
-		$first_characters		= array();
+		$first_characters		= [];
 		$first_characters['']	= $this->language->lang('ALL');
 		for ($i = ord($this->language->lang('START_CHARACTER')); $i	<= ord($this->language->lang('END_CHARACTER')); $i++)
 		{
@@ -266,7 +265,7 @@ class admin_controller implements admin_interface
 	 */
 	protected function character_select($default)
 	{
-		$options	 = array();
+		$options	 = [];
 		$options[''] = $this->language->lang('ALL');
 
 		for ($i = ord($this->language->lang('START_CHARACTER')); $i	<= ord($this->language->lang('END_CHARACTER')); $i++)
